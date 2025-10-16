@@ -59,6 +59,8 @@ class FilledTextField extends StatelessWidget {
   /// [keyboardType] Whether the keyboard layout uses num pad or alphabets
   ///
   /// [autovalidateMode] Determine if input user is valid according to set mode
+  ///
+  /// [scrollPadding] is an optional padding that insets the scrollable area to avoid the text field.
   const FilledTextField({
     this.controller,
     this.fillColor,
@@ -90,6 +92,7 @@ class FilledTextField extends StatelessWidget {
     this.keyboardType,
     this.autovalidateMode,
     this.onTap,
+    this.scrollPadding,
     super.key,
   });
   final Color? fillColor;
@@ -120,6 +123,7 @@ class FilledTextField extends StatelessWidget {
   final Function()? onTap;
   final TextInputType? keyboardType;
   final AutovalidateMode? autovalidateMode;
+  final EdgeInsets? scrollPadding;
 
   @override
   Widget build(BuildContext context) {
@@ -161,6 +165,8 @@ class FilledTextField extends StatelessWidget {
         ),
         contentPadding: contentPadding,
       ),
+      scrollPadding:
+                widget.scrollPadding ?? const EdgeInsets.all(20.0),
     );
   }
 }
